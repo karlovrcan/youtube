@@ -1,6 +1,7 @@
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/page";
+import AppContext from "@/AppContext/context";
 
 export const metadata = {
   title: "Youtube",
@@ -12,8 +13,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <section className="main">
-          <Header/>
-          {children}
+          <AppContext>
+            <Header />
+            {children}
+          </AppContext>
         </section>
       </body>
     </html>
