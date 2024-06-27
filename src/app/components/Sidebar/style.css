@@ -1,0 +1,52 @@
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  margin-top: 20px;
+  top: 80px;
+  width: 15%;
+  overflow: scroll;
+  padding-bottom: 30px !important;
+  padding-right: 15px;
+}
+
+.sidebar button {
+  width: 100% !important;
+  text-align: left;
+  justify-content: flex-start;
+  color: #fff;
+  padding: 10px 10px !important;
+  border-radius: 7px !important;
+  text-transform: capitalize !important;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sidebar button .icon {
+  display: flex;
+  width: 30px !important;
+}
+
+.sidebar button .icon svg {
+  font-size: 20px;
+}
+
+.sidebar button.active {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sidebarWrapper.expand button {
+  flex-direction: column !important; /* Added this line */
+  text-align: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  align-items: center !important; /* Added this line */
+}
+
+.sidebarWrapper.expand button .icon {
+  align-items: center;
+  justify-content: center;
+}

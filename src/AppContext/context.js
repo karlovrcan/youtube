@@ -5,22 +5,37 @@ import { createContext, useEffect, useState } from "react";
 const Context = createContext();
 
 const AppContext = (props) => {
-  const [data, setData] = useState([]);
+  const [selectedCat, setSelectedCat] = useState("New");
+  const [videos, setVideos] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const endPoint = "search";
 
   useEffect(() => {
-    fetchData("search/?q=New");
-  }, []); // Ensure the dependency array is empty to prevent infinite loops
+    fetchData(endPoint, { q: selectedCat });
+  }, [selectedCat]); // Add selectedCat as a dependency
 
-  const fetchData = async (url) => {
-    // Make fetchData an async function
-    const result = await fetchDataFromApi(url);
-    console.log(result);
-    setData(result);
+  const fetchData = async (url, params) => {
+    // try {
+    //   const data = await fetchDataFromApi(url, params);
+    //   setVideos(data.items);
+    // } catch (error) {
+    //   console.error("Failed to fetch data:", error);
+    // }
   };
 
-  const value = { data, setData };
+  const value = {
+    selectedCat,
+    setSelectedCat,
+    videos,
+    setVideos,
+    fetchData,
+    endPoint,
+    setToggle,
+    toggle,
+  };
 
   return <Context.Provider value={value}>{props.children}</Context.Provider>;
 };
 
 export default AppContext;
+export { Context };
